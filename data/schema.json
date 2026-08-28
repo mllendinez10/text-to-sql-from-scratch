@@ -1,0 +1,647 @@
+{
+  "source": "SQLite_tables.xlsx",
+  "source_sheet": "Data Dictionary",
+  "database": "SQLite",
+  "tables": {
+    "channel": {
+      "columns": {
+        "channel_item_number_pk": {
+          "description": "Unique item identifier and primary key",
+          "unit": null,
+          "sql_type": "INTEGER PRIMARY KEY",
+          "primary_key": true,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "designation": {
+          "description": "Product name",
+          "unit": null,
+          "sql_type": "TEXT NOT NULL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "length": {
+          "description": "Nominal channel length",
+          "unit": "m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "material": {
+          "description": "Steel material grade",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "coating_material": {
+          "description": "Coating designation",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "coating_standard": {
+          "description": "Coating according to standard",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_document": {
+          "description": "Source PDF filename",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_page": {
+          "description": "Source page in the PDF",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        }
+      }
+    },
+    "channel_technical_data": {
+      "columns": {
+        "channel_item_number_fk": {
+          "description": "Foreign key referencing channel.channel_item_number_pk",
+          "unit": null,
+          "sql_type": "INTEGER FOREIGN KEY",
+          "primary_key": false,
+          "foreign_key": true,
+          "nullable": true
+        },
+        "channel_technical_data_id_pk": {
+          "description": "ID for technical data",
+          "unit": null,
+          "sql_type": "INTEGER PRIMARY KEY",
+          "primary_key": true,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "t": {
+          "description": "Design thickness",
+          "unit": "mm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "weight": {
+          "description": "Weight per unit length",
+          "unit": "kg/m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fy": {
+          "description": "Yield strength",
+          "unit": "MPa",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "area": {
+          "description": "Gross cross-sectional area",
+          "unit": "mm^2",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "ix": {
+          "description": "Gross moment of inertia about X axis",
+          "unit": "mm^4",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "iy": {
+          "description": "Gross moment of inertia about Y axis",
+          "unit": "mm^4",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "sx": {
+          "description": "Gross section modulus about X axis",
+          "unit": "mm^3",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "sy": {
+          "description": "Gross section modulus about Y axis",
+          "unit": "mm^3",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "rx": {
+          "description": "Radius of gyration about X axis",
+          "unit": "mm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "ry": {
+          "description": "Radius of gyration about Y axis",
+          "unit": "mm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "ix_eff": {
+          "description": "Effective moment of inertia about X axis",
+          "unit": "mm^4",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "iy_eff": {
+          "description": "Effective moment of inertia about Y axis",
+          "unit": "mm^4",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "sx_eff": {
+          "description": "Effective section modulus about X axis",
+          "unit": "mm^3",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "sy_eff": {
+          "description": "Effective section modulus about Y axis",
+          "unit": "mm^3",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "mal_x": {
+          "description": "Allowable local-buckling bending moment about X axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "phi_ml_x": {
+          "description": "LRFD local-buckling bending strength about X axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "mal_y": {
+          "description": "Allowable local-buckling bending moment about Y axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "phi_ml_y": {
+          "description": "LRFD local-buckling bending strength about Y axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "mad_x": {
+          "description": "Allowable distortional bending moment about X axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "phi_md_x": {
+          "description": "LRFD distortional bending strength about X axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "mad_y": {
+          "description": "Allowable distortional bending moment about Y axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "phi_md_y": {
+          "description": "LRFD distortional bending strength about Y axis",
+          "unit": "kN.m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "va_x": {
+          "description": "Allowable shear about X axis",
+          "unit": "N",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "phi_v_x": {
+          "description": "LRFD design shear about X axis",
+          "unit": "N",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "va_y": {
+          "description": "Allowable shear about Y axis",
+          "unit": "N",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "phi_v_y": {
+          "description": "LRFD design shear about Y axis",
+          "unit": "N",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "lu": {
+          "description": "Limit of unbraced length",
+          "unit": "m",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "j": {
+          "description": "St. Venant torsional constant",
+          "unit": "mm^4",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "cw": {
+          "description": "Torsional warping constant",
+          "unit": "mm^6",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "x0": {
+          "description": "Shear-centre distance along principal X axis",
+          "unit": "mm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "y0": {
+          "description": "Shear-centre distance along principal Y axis",
+          "unit": "mm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "r0": {
+          "description": "Polar radius of gyration about shear centre",
+          "unit": "mm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_document": {
+          "description": "Source PDF filename",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_page": {
+          "description": "Source page in the PDF",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        }
+      }
+    },
+    "connector": {
+      "columns": {
+        "designation": {
+          "description": "Product name",
+          "unit": null,
+          "sql_type": "TEXT NOT NULL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "material": {
+          "description": "Steel material grade",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "connector_item_number_pk": {
+          "description": "Unique connector item identifier and primary key",
+          "unit": null,
+          "sql_type": "INTEGER PRIMARY KEY",
+          "primary_key": true,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "material_standard": {
+          "description": "Material according to standard",
+          "unit": null,
+          "sql_type": null,
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "coating_method": {
+          "description": "Coating method",
+          "unit": null,
+          "sql_type": null,
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_document": {
+          "description": "Source PDF filename",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_page": {
+          "description": "Source page in the PDF",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        }
+      }
+    },
+    "connector_torque": {
+      "columns": {
+        "connector_item_number_fk": {
+          "description": "Foreign key referencing connector.connector_item_number_pk",
+          "unit": null,
+          "sql_type": "INTEGER FOREIGN KEY",
+          "primary_key": false,
+          "foreign_key": true,
+          "nullable": true
+        },
+        "connector_torque_id_pk": {
+          "description": "ID for connector torque",
+          "unit": null,
+          "sql_type": "INTEGER PRIMARY KEY",
+          "primary_key": true,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "bolt_designation": {
+          "description": "Associated bolt designation",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "torque": {
+          "description": "Required installation torque",
+          "unit": "Nm",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_document": {
+          "description": "Source PDF filename",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_page": {
+          "description": "Source page in the PDF",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        }
+      }
+    },
+    "connector_resistance": {
+      "columns": {
+        "connector_item_number_fk": {
+          "description": "Foreign key referencing connector.connector_item_number_pk",
+          "unit": null,
+          "sql_type": "INTEGER FOREIGN KEY",
+          "primary_key": false,
+          "foreign_key": true,
+          "nullable": true
+        },
+        "source_document": {
+          "description": "Source PDF filename",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_page": {
+          "description": "Source page in the PDF",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "connector_resistance_id_pk": {
+          "description": "ID for connector resistance",
+          "unit": null,
+          "sql_type": "INTEGER PRIMARY KEY",
+          "primary_key": true,
+          "foreign_key": false,
+          "nullable": false
+        },
+        "angle_connector_quantity": {
+          "description": "Number of angle connectors in the configuration",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "installation_channel_designation": {
+          "description": "Installation channel base designation; all lengths and coatings apply",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "channel_connector_1_designation": {
+          "description": "First channel connector type",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "channel_connector_1_quantity": {
+          "description": "Quantity of first channel connector type",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "channel_connector_2_designation": {
+          "description": "Second channel connector type if required",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "channel_connector_2_quantity": {
+          "description": "Quantity of second channel connector type",
+          "unit": null,
+          "sql_type": "INTEGER",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fx_positive": {
+          "description": "Characteristic resistance in positive local X direction",
+          "unit": "kN",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fx_negative": {
+          "description": "Characteristic resistance in negative local X direction",
+          "unit": "kN",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fy_positive": {
+          "description": "Characteristic resistance in positive local Y direction",
+          "unit": "kN",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fy_negative": {
+          "description": "Characteristic resistance in negative local Y direction",
+          "unit": "kN",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fz_positive": {
+          "description": "Characteristic resistance in positive local Z direction",
+          "unit": "kN",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "fz_negative": {
+          "description": "Characteristic resistance in negative local Z direction",
+          "unit": "kN",
+          "sql_type": "REAL",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "source_table": {
+          "description": "Source Annex C table number",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        },
+        "configuration_notes": {
+          "description": "Additional configuration information",
+          "unit": null,
+          "sql_type": "TEXT",
+          "primary_key": false,
+          "foreign_key": false,
+          "nullable": true
+        }
+      }
+    }
+  },
+  "relationships": [
+    {
+      "parent_table": "channel",
+      "parent_column": "channel_item_number_pk",
+      "child_table": "channel_technical_data",
+      "child_column": "channel_item_number_fk"
+    },
+    {
+      "parent_table": "connector",
+      "parent_column": "connector_item_number_pk",
+      "child_table": "connector_torque",
+      "child_column": "connector_item_number_fk"
+    },
+    {
+      "parent_table": "connector",
+      "parent_column": "connector_item_number_pk",
+      "child_table": "connector_resistance",
+      "child_column": "connector_item_number_fk"
+    }
+  ]
+}
