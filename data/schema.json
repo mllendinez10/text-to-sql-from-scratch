@@ -392,7 +392,7 @@
         "material_standard": {
           "description": "Material according to standard",
           "unit": null,
-          "sql_type": null,
+          "sql_type": "TEXT",
           "primary_key": false,
           "foreign_key": false,
           "nullable": true
@@ -400,7 +400,7 @@
         "coating_method": {
           "description": "Coating method",
           "unit": null,
-          "sql_type": null,
+          "sql_type": "TEXT",
           "primary_key": false,
           "foreign_key": false,
           "nullable": true
