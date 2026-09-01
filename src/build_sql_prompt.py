@@ -72,7 +72,7 @@ def format_schema(schema):
 # Build SQL generation prompt
 # ---------------------------------------------------------------------------
 
-def build_sql_prompt(query):
+def build_sql_prompt(question):
 
     schema = load_schema()
     schema_text = format_schema(schema)
@@ -84,8 +84,11 @@ Use the database schema below to generate a valid SQLite query.
 
 Rules:
 - Use only tables and columns defined in the schema.
+- Use only the relationships listed in the schema.
 - Generate only SELECT queries.
 - Do not use DELETE, UPDATE, INSERT, DROP, or ALTER.
+- Do not infer joins between columns just because their values or names appear related.
+- Map product names and technical terms to columns based on the column descriptions in the schema.
 - Return only the SQL query.
 - Do not explain the query.
 
@@ -93,7 +96,7 @@ Database schema:
 {schema_text}
 
 User question:
-{query}
+{question}
 
 """
 
