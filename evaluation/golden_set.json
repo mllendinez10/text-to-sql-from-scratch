@@ -1,0 +1,291 @@
+[
+  {
+    "id": "Q001",
+    "category": "Lookup",
+    "difficulty": "easy",
+    "question": "What is the length for MT-30?",
+    "reference_sql_query": "SELECT length FROM channel WHERE designation = 'MT-30';",
+    "expected_result": [
+      [6]
+    ],
+    "expected_answer_content": {
+      "length": 6,
+      "unit": "m"
+    }
+  },
+  {
+    "id": "Q002",
+    "category": "Lookup",
+    "difficulty": "easy",
+    "question": "What is the material for MT-80 OC?",
+    "reference_sql_query": "SELECT material FROM channel WHERE designation = 'MT-80 OC';",
+    "expected_result": [
+      ["S350GD"]
+    ],
+    "expected_answer_content": {
+      "material": "S350GD"
+    }
+  },
+  {
+    "id": "Q003",
+    "category": "Filter",
+    "difficulty": "easy",
+    "question": "Which channels have a length of 6 m?",
+    "reference_sql_query": "SELECT designation FROM channel WHERE length = 6;",
+    "expected_result": [
+      ["MT-30"],
+      ["MT-30 OC"],
+      ["MT-50"],
+      ["MT-50 OC"],
+      ["MT-50 U"],
+      ["MT-60"],
+      ["MT-60 OC"],
+      ["MT-30D"],
+      ["MT-30D OC"],
+      ["MT-40D"],
+      ["MT-40D OC"],
+      ["MT-50D"],
+      ["MT-50D U"],
+      ["MT-60D"],
+      ["MT-60D OC"],
+      ["MT-70 OC"],
+      ["MT-70 US OC"],
+      ["MT-80 OC"],
+      ["MT-90 OC"],
+      ["MT-90 US OC"],
+      ["MT-100 OC"],
+      ["MT-90H OC"]
+    ],
+    "expected_answer_content": {
+      "designation": [
+        "MT-30",
+        "MT-30 OC",
+        "MT-50",
+        "MT-50 OC",
+        "MT-50 U",
+        "MT-60",
+        "MT-60 OC",
+        "MT-30D",
+        "MT-30D OC",
+        "MT-40D",
+        "MT-40D OC",
+        "MT-50D",
+        "MT-50D U",
+        "MT-60D",
+        "MT-60D OC",
+        "MT-70 OC",
+        "MT-70 US OC",
+        "MT-80 OC",
+        "MT-90 OC",
+        "MT-90 US OC",
+        "MT-100 OC",
+        "MT-90H OC"
+      ]
+    }
+  },
+  {
+    "id": "Q004",
+    "category": "Join",
+    "difficulty": "medium",
+    "question": "What is the yield strength of MT-80 OC?",
+    "reference_sql_query": "SELECT fy FROM channel JOIN channel_technical_data ON channel_item_number_pk = channel_item_number_fk WHERE designation = 'MT-80 OC';",
+    "expected_result": [
+      [350]
+    ],
+    "expected_answer_content": {
+      "yield_strength": 350,
+      "unit": "MPa"
+    }
+  },
+  {
+    "id": "Q005",
+    "category": "Join",
+    "difficulty": "medium",
+    "question": "What is the St. Venant torsional constant of MT-70 S OC?",
+    "reference_sql_query": "SELECT j FROM channel JOIN channel_technical_data ON channel_item_number_pk = channel_item_number_fk WHERE designation = 'MT-70 S OC';",
+    "expected_result": [
+      [297456]
+    ],
+    "expected_answer_content": {
+      "st_venant_torsional_constant": 297456,
+      "unit": "mm^4"
+    }
+  },
+  {
+    "id": "Q006",
+    "category": "Lookup",
+    "difficulty": "easy",
+    "question": "What is the material of MT-FL OC?",
+    "reference_sql_query": "SELECT material FROM connector WHERE designation = 'MT-FL OC';",
+    "expected_result": [
+      ["S460MC / Polypropylene"]
+    ],
+    "expected_answer_content": {
+      "material": "S460MC / Polypropylene"
+    }
+  },
+  {
+    "id": "Q007",
+    "category": "Filter",
+    "difficulty": "easy",
+    "question": "Which connectors have material Q235B?",
+    "reference_sql_query": "SELECT designation FROM connector WHERE material = 'Q235B';",
+    "expected_result": [
+      ["MT-C-LL1"],
+      ["MT-C-LL1 OC"],
+      ["MT-C-LL1 FL"],
+      ["MT-C-LL1 FL OC"],
+      ["MT-CT-T"],
+      ["MT-CT-T OC"],
+      ["MT-C-LL2"],
+      ["MT-C-LL2 OC"],
+      ["MT-C-LL2 FL"],
+      ["MT-C-LL2 FL OC"],
+      ["MT-C-T/2"],
+      ["MT-C-T/2 OC"],
+      ["MT-C-T/2 FL"],
+      ["MT-C-T/2 FL OC"]
+    ],
+    "expected_answer_content": {
+      "designation": [
+        "MT-C-LL1",
+        "MT-C-LL1 OC",
+        "MT-C-LL1 FL",
+        "MT-C-LL1 FL OC",
+        "MT-CT-T",
+        "MT-CT-T OC",
+        "MT-C-LL2",
+        "MT-C-LL2 OC",
+        "MT-C-LL2 FL",
+        "MT-C-LL2 FL OC",
+        "MT-C-T/2",
+        "MT-C-T/2 OC",
+        "MT-C-T/2 FL",
+        "MT-C-T/2 FL OC"
+      ]
+    }
+  },
+  {
+    "id": "Q008",
+    "category": "Join",
+    "difficulty": "medium",
+    "question": "What is the required installation torque for MT-FL OC?",
+    "reference_sql_query": "SELECT torque FROM connector JOIN connector_torque ON connector_item_number_pk = connector_item_number_fk WHERE designation = 'MT-FL OC';",
+    "expected_result": [
+      [40]
+    ],
+    "expected_answer_content": {
+      "torque": 40,
+      "unit": "Nm"
+    }
+  },
+  {
+    "id": "Q009",
+    "category": "Lookup",
+    "difficulty": "easy",
+    "question": "What is the coating method for MT-C-LL1 OC?",
+    "reference_sql_query": "SELECT coating_method FROM connector WHERE designation = 'MT-C-LL1 OC';",
+    "expected_result": [
+      ["hot dip galvanized"]
+    ],
+    "expected_answer_content": {
+      "coating_method": "hot dip galvanized"
+    }
+  },
+  {
+    "id": "Q010",
+    "category": "Multi-filter Join",
+    "difficulty": "medium",
+    "question": "What is the torque for MT-TL M10 when using bolt MT-TLB?",
+    "reference_sql_query": "SELECT torque FROM connector JOIN connector_torque ON connector_item_number_pk = connector_item_number_fk WHERE designation = 'MT-TL M10' AND bolt_designation = 'MT-TLB';",
+    "expected_result": [
+      [30]
+    ],
+    "expected_answer_content": {
+      "torque": 30,
+      "unit": "Nm"
+    }
+  },
+  {
+    "id": "Q011",
+    "category": "Multi-filter Join",
+    "difficulty": "hard",
+    "question": "What is the characteristic resistance in positive local X direction for MT-C-GS OC when using the channel MT-40D V2 and the channel connector MT-FL?",
+    "reference_sql_query": "SELECT fx_positive FROM connector JOIN connector_resistance ON connector_item_number_pk = connector_item_number_fk WHERE designation = 'MT-C-GS OC' AND installation_channel_designation = 'MT-40D V2' AND channel_connector_1_designation = 'MT-FL';",
+    "expected_result": [
+      [14.93]
+    ],
+    "expected_answer_content": {
+      "fx_positive": 14.93,
+      "unit": "kN"
+    }
+  },
+  {
+    "id": "Q012",
+    "category": "Multi-filter Join",
+    "difficulty": "hard",
+    "question": "How many channel connectors do I need to install MT-C-LL2 OC with MT-40D V2 using MT-FL?",
+    "reference_sql_query": "SELECT channel_connector_1_quantity FROM connector JOIN connector_resistance ON connector_item_number_pk = connector_item_number_fk WHERE designation = 'MT-C-LL2 OC' AND installation_channel_designation = 'MT-40D V2' AND channel_connector_1_designation = 'MT-FL';",
+    "expected_result": [
+      [4]
+    ],
+    "expected_answer_content": {
+      "channel_connector_1_quantity": 4
+    }
+  },
+  {
+    "id": "Q013",
+    "category": "Aggregate",
+    "difficulty": "medium",
+    "question": "What is the maximum yield strength?",
+    "reference_sql_query": "SELECT MAX(fy) FROM channel_technical_data;",
+    "expected_result": [
+      [350]
+    ],
+    "expected_answer_content": {
+      "maximum_yield_strength": 350,
+      "unit": "MPa"
+    }
+  },
+  {
+    "id": "Q014",
+    "category": "Aggregate + Join",
+    "difficulty": "medium",
+    "question": "Which channels have the highest yield strength?",
+    "reference_sql_query": "SELECT designation FROM channel JOIN channel_technical_data ON channel_item_number_pk = channel_item_number_fk WHERE fy = (SELECT MAX(fy) FROM channel_technical_data);",
+    "expected_result": [
+      ["MT-70 S OC"],
+      ["MT-70 OC"],
+      ["MT-70 S US OC"],
+      ["MT-70 US OC"],
+      ["MT-80 S OC"],
+      ["MT-80 OC"],
+      ["MT-90 S OC"],
+      ["MT-90 OC"],
+      ["MT-90 S US OC"],
+      ["MT-90 US OC"],
+      ["MT-100S OC"],
+      ["MT-100 OC"],
+      ["MT-90H OC"],
+      ["MT-90H S OC"]
+    ],
+    "expected_answer_content": {
+      "designation": [
+        "MT-70 S OC",
+        "MT-70 OC",
+        "MT-70 S US OC",
+        "MT-70 US OC",
+        "MT-80 S OC",
+        "MT-80 OC",
+        "MT-90 S OC",
+        "MT-90 OC",
+        "MT-90 S US OC",
+        "MT-90 US OC",
+        "MT-100S OC",
+        "MT-100 OC",
+        "MT-90H OC",
+        "MT-90H S OC"
+      ]
+    }
+  }
+]
