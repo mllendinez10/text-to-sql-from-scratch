@@ -77,7 +77,7 @@ def build_sql_prompt(question):
     schema = load_schema()
     schema_text = format_schema(schema)
 
-    prompt = f"""
+    sql_prompt = f"""
 You are a SQL assistant.
 
 Use the database schema below to generate a valid SQLite query.
@@ -100,4 +100,4 @@ User question:
 
 """
 
-    return prompt
+    return sql_prompt
