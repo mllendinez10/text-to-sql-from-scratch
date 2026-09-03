@@ -32,3 +32,46 @@ The goal is to gain hands-on experience with the main components of a Text-to-SQ
 | Relational database    | SQLite               |
 | LLM                    | Qwen3 4B via Ollama  |
 | UI                     | Streamlit            |
+
+## Project Structure
+
+```text
+text-to-sql-from-scratch/
+│
+├── data/
+│   ├── schema.json
+│   └── Tables.xlsx
+│
+├── database/
+│   └── products.db
+│
+├── evaluation/
+│   └── golden_set.json
+│
+├── src/
+│   ├── app.py
+│   ├── build_answer_prompt.py
+│   ├── build_sql_prompt.py
+│   ├── create_database.py
+│   ├── execute_sql.py
+│   ├── generate_answer.py
+│   ├── generate_sql.py
+│   └── main.py
+│
+├── .gitignore
+├── README.md
+└── requirements.txt
+```
+
+## File Purpose
+
+| File                       | Purpose                                                                                               |
+| -------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `create_database.py`     | Creates the SQLite database and loads the Excel data into the tables                                  |
+| `build_sql_prompt.py`    | Builds the SQL generation prompt using the schema and user question                                   |
+| `generate_sql.py`        | Sends the prompt to Qwen3 via Ollama and generates the SQL query                                      |
+| `execute_sql.py`         | Executes the generated SQL query against the SQLite database                                          |
+| `build_answer_prompt.py` | Builds the answer prompt using the question, SQL query, query result, and relevant schema information |
+| `generate_answer.py`     | Sends the answer prompt to Qwen3 via Ollama and generates the final natural language answer           |
+| `main.py`                | Connects and runs the individual steps of the Text-to-SQL pipeline                                    |
+| `app.py`                 | Provides the Streamlit user interface                                                                 |
