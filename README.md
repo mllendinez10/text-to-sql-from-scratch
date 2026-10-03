@@ -53,6 +53,7 @@ text-to-sql-from-scratch/
 │   ├── build_answer_prompt.py
 │   ├── build_sql_prompt.py
 │   ├── create_database.py
+│   ├── evaluation.py
 │   ├── execute_sql.py
 │   ├── generate_answer.py
 │   ├── generate_sql.py
@@ -65,13 +66,32 @@ text-to-sql-from-scratch/
 
 ## File Purpose
 
-| File                       | Purpose                                                                                               |
-| -------------------------- | ----------------------------------------------------------------------------------------------------- |
-| `create_database.py`     | Creates the SQLite database and loads the Excel data into the tables                                  |
-| `build_sql_prompt.py`    | Builds the SQL generation prompt using the schema and user question                                   |
-| `generate_sql.py`        | Sends the prompt to Qwen3 via Ollama and generates the SQL query                                      |
-| `execute_sql.py`         | Executes the generated SQL query against the SQLite database                                          |
-| `build_answer_prompt.py` | Builds the answer prompt using the question, SQL query, query result, and relevant schema information |
-| `generate_answer.py`     | Sends the answer prompt to Qwen3 via Ollama and generates the final natural language answer           |
-| `main.py`                | Connects and runs the individual steps of the Text-to-SQL pipeline                                    |
-| `app.py`                 | Provides the Streamlit user interface                                                                 |
+| File                   | Purpose                                                                                               |
+| ---------------------- | ----------------------------------------------------------------------------------------------------- |
+| create_database.py     | Creates the SQLite database and loads the Excel data into the tables                                  |
+| build_sql_prompt.py    | Builds the SQL generation prompt using the schema and user question                                   |
+| generate_sql.py        | Sends the prompt to Qwen3 via Ollama and generates the SQL query                                      |
+| execute_sql.py         | Executes the generated SQL query against the SQLite database                                          |
+| build_answer_prompt.py | Builds the answer prompt using the question, SQL query, query result, and relevant schema information |
+| generate_answer.py     | Sends the answer prompt to Qwen3 via Ollama and generates the final natural language answer           |
+| evaluation.py          | Evaluates Text-to-SQL accuracy using the golden set                                                   |
+| main.py                | Connects and runs the individual steps of the Text-to-SQL pipeline                                    |
+| app.py                 | Provides the Streamlit user interface                                                                 |
+
+## Evaluation Results
+
+The Text-to-SQL pipeline is evaluated using the questions in the file golden_set.json
+
+Each golden set entry contains:
+
+* A natural language question
+* A difficulty level: easy, medium, or hard
+* The expected answer content
+
+The evaluation script runs every question through the complete pipeline and checks whether all expected answer content is present in the generated answer. A question is counted as correct only if all expected answer content is present in the answer.
+
+The evaluation results are:
+
+* Easy: 5/6 correct
+* Medium: 5/6 correct
+* Hard: 0/2 correct
