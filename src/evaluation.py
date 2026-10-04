@@ -20,7 +20,7 @@ from main import run_pipeline
 with open("evaluation/golden_set.json", "r", encoding="utf-8") as file:
     golden_set = json.load(file)
     
-# Test
+# Test that document is loaded
 print(f"the loaded file contains: {len(golden_set)} questions")
 
 
@@ -44,9 +44,6 @@ for test in golden_set:
     question = test["question"]
     difficulty = test["difficulty"].lower()
     expected_content = test["expected_answer_content"]
-    
-    # Show evaluation progress
-    print(f"\nEvaluating: {question}")
     
     # Run Text-to-SQL pipeline
     answer = run_pipeline(question)
@@ -72,6 +69,11 @@ for test in golden_set:
 
     if correct:
         results[difficulty]["correct"] += 1
+        
+
+   # Test that the evaluation is in process
+    print(f"\nQuestion: {question}")
+    print(f"\nAnswer: {answer}")
 
 
 # --------------------------------------------------

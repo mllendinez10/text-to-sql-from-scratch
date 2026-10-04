@@ -95,3 +95,15 @@ The evaluation results are:
 * Easy: 5/6 correct
 * Medium: 5/6 correct
 * Hard: 0/2 correct
+
+## Project Takeaways
+
+The main insights gained from building and evaluating the Text-to-SQL pipeline from scratch are:
+
+* Text-to-SQL performance depends heavily on how clearly the database schema and relationships are described to the LLM.
+* Prompt instructions can guide SQL generation, but they do not guarantee correct queries.
+* Answer accuracy is more meaningful than comparing generated SQL strings because different SQL queries can return the same correct result.
+* Providing only relevant schema information to the answer generation step reduces unnecessary context and improves efficiency.
+* Local LLM inference is the main performance bottleneck, while SQLite query execution is typically very fast.
+* A golden set is essential for identifying the strengths and weaknesses of the system.
+* The pipeline performs well on easy and medium questions but struggles with hard questions involving multiple filters and joins.
