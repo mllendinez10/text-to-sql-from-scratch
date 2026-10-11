@@ -107,3 +107,16 @@ The main insights gained from building and evaluating the Text-to-SQL pipeline f
 * Local LLM inference is the main performance bottleneck, while SQLite query execution is typically very fast.
 * A golden set is essential for identifying the strengths and weaknesses of the system.
 * The pipeline performs well on easy and medium questions but struggles with hard questions involving multiple filters and joins.
+
+## Getting Started
+
+1. Install dependencies: pip install -r requirements.txt
+2. Install and run Ollama, then download the Qwen3 4B model.
+3. If you change the data:
+   - Add your Excel file to the folder data/ and update the file path.
+   - Run create_database.py to create the SQLite database.
+   - Update schema.json to match your database structure.
+   - Update golden_set.json with questions and expected answers from the new data.
+4. Run the pipeline: main.py
+5. Launch the UI: app.py
+6. Evaluate the pipeline: evaluation.py
