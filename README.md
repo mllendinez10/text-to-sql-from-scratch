@@ -14,7 +14,6 @@ The goal is to gain hands-on experience with the main components of a Text-to-SQ
 - SQLite database creation
 - Prompt construction using the database schema and user question
 - SQL query generation with an LLM
-- SQL validation and safety checks
 - Query execution against SQLite
 - SQL result processing
 - LLM answer generation
