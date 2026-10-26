@@ -109,13 +109,15 @@ The main insights gained from building and evaluating the Text-to-SQL pipeline f
 
 ## Getting Started
 
+Run all commands from the project root with your virtual environment active.
 1. Install dependencies: pip install -r requirements.txt
-2. Install and run Ollama, then download the Qwen3 4B model.
-3. If you change the data:
-   - Add your Excel file to the folder data/ and update the file path.
-   - Run create_database.py to create the SQLite database.
-   - Update schema.json to match your database structure.
-   - Update golden_set.json with questions and expected answers from the new data.
-4. Run the pipeline: main.py
-5. Launch the UI: app.py
-6. Evaluate the pipeline: evaluation.py
+2. Install and run Ollama, then download the model: ollama pull qwen3:4b
+3. Create the SQLite database: python src/create_database.py
+4. If you change the data:
+   - Add your Excel file to data/ and update the file path in the database creation script.
+   - Run python src/create_database.py again.
+   - Update data/schema.json to match your database structure.
+   - Update evaluation/golden_set.json with questions and expected answers from the new data.
+5. Run the pipeline: python src/main.py
+6. Launch the UI: streamlit run src/app.py
+7. Evaluate the pipeline: python src/evaluation.py
